@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Calculator Button">
+    <meta property="og:description" content="Click the button to open the calculator.">
+    <meta property="og:image" content="URL_TO_YOUR_IMAGE">
+    <meta property="og:url" content="YOUR_GITHUB_PAGES_URL">
     <title>Calculator Button</title>
     <style>
         .button {
@@ -34,7 +38,18 @@
 
     <script>
         function openCalculator() {
-            window.open('calc://');
+            // For Windows
+            if (navigator.appVersion.indexOf("Win") != -1) {
+                window.open('ms-calculator:');
+            }
+            // For macOS
+            else if (navigator.appVersion.indexOf("Mac") != -1) {
+                window.open('x-calculator://');
+            }
+            // For Linux
+            else {
+                window.open('gnome-calculator:');
+            }
         }
     </script>
 </body>
